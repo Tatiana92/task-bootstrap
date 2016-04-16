@@ -1,0 +1,77 @@
+
+
+
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    {% load staticfiles %}
+    <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+    <script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.2.2/core.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/Sortable/1.4.2/Sortable.min.js"></script>
+    <script src="https://cdn.polyfill.io/v1/polyfill.js?features=Element.prototype.closest"></script>
+      <link rel="stylesheet" href="{{ STATIC_URL }}css/news.css">
+      <link rel="stylesheet" href="{% static 'materialize/dist/css/materialize.css' %}"/>
+  </head>
+
+  <body>
+    <script src="{{ STATIC_URL }}js/voting.js"></script>
+    <div id = 'galery' align="center" style="padding: 10px;">
+       {% if report %} 
+        <div  align="left"><button  type = "button" class="btn btn-primary" onclick="window.location=window.location.origin + '{% if cat %}/cat/{{cat}}{% else %}/getall{% endif %}'">Назад</button></div>
+        <div align="center"><h2>{{ report.name }}</h2></div>
+        <hr>
+
+        <div align="left" >
+          Дата публикации: {% if report.date %} 
+                              {{report.date}}
+                            {% else %}
+                              неизвестна
+                            {% endif %}
+        </div>
+        <div align="right" >
+          Категория: {% if report.category_id %} 
+                              {{report.category_id}}
+                            {% else %}
+                              неизвестна
+                            {% endif %}
+        </div>
+        <p><img src="{{ MEDIA_URL }}{{ report.photo }}" alt="Фото" align="left" width="200px" height="auto"><!---->
+        {{ report.text }}</p>
+
+        <hr>
+
+          <div id="{{ report.id }}" class="voter" align: "center" onclick="document.getElementById('captcha').setAttribute('style','display:inline-block');document.getElementById('captcha').setAttribute('vote', this.id + ':' + event.target.getAttribute('class'));">
+            <span class="down">—</span>
+            <span class="votes">{{ report.votes }}</span>
+            <span class="up">+</span>
+          </div>
+          <div id='captcha' style="display: none;">
+          <div style="width: 160px; height: 200px;" class='shadow-cp'>
+              <legend>Пожалуйста, расставьте квадраты по порядку</legend>
+              <div class="captcha_wrap">
+                  <ul id="sortable">
+                      <li class="captchaItem">1</li>
+                      <li class="captchaItem">2</li>
+                      <li class="captchaItem">3</li>
+                      <li class="captchaItem">4</li>
+                      <li class="captchaItem">5</li>
+                      <li class="captchaItem">6</li>
+                  </ul>
+              </div>
+              <a id="captchasubmit" class="button">Отправить</a>
+          </div>
+        </div>
+
+
+      {% else %}
+         <div align="center" style="box-shadow: 0 0 10px rgba(0,0,0,0.5); padding: 10px;">
+          Такой новости не существует
+         </div>
+      {% endif %}
+    </div>
+  </body>
+</html>

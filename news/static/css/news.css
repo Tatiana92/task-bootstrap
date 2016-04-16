@@ -1,0 +1,212 @@
+@import "http://ajax.googleapis.com/ajax/libs/dojo/1.6.1/dojo/resources/dojo.css";
+@import "http://ajax.googleapis.com/ajax/libs/dojo/1.6.1/dijit/themes/claro/claro.css";
+
+.imgPicture {
+	display: inline-block;
+	width: 290px;
+	height: 200px;
+	overflow: hidden;
+	background: #FFFFFF;
+	margin: 0;
+	padding-right: 10px;
+	padding-top: 5px;
+}
+  .imgPicture img {
+	width: 200px;
+	border: none;
+	margin: 0;
+	padding: 0;
+}
+
+.voter {
+  font-family: Consolas, "Lucida Console", monospace;
+  font-size: 20px;
+  display:inline-block;
+	width: 100px;
+	height: 30px;
+
+}
+.shadow-cp {
+	box-shadow: 0 0 10px rgba(0,0,0,0.5);
+	padding: 10px;
+}
+
+.up,
+.down {
+  cursor: pointer;
+  color: blue;
+  font-weight: bold;
+}
+
+
+html, body {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	overflow:visible;
+}
+
+.thumbnail {
+	position: relative;
+	padding: 0px;
+	margin-bottom: 20px;
+}
+
+.thumbnail img {
+	width: 100%;
+}
+
+.nav-pills > li {
+  float: left;
+}
+.nav-pills > li > a {
+  border-radius: 4px;
+	color: #FFFFFF;
+	display: block;
+	width: 100px;
+	background-color: #26A69A;
+}
+.nav-pills > li + li {
+  margin-left: 2px;
+}
+.nav-pills > li.active > a,
+.nav-pills > li.active > a:hover,
+.nav-pills > li.active > a:focus {
+  color: #26A69A;
+  background-color: #337ab7;
+}
+.nav-stacked > li {
+  float: none;
+}
+.nav-stacked > li + li {
+  margin-top: 2px;
+  margin-left: 0;
+}
+.nav {
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+.nav > li {
+  position: relative;
+  display: block;
+}
+.nav > li > a {
+  position: relative;
+  display: block;
+  padding: 10px 15px;
+}
+.nav > li > a:hover,
+.nav > li > a:focus {
+  text-decoration: none;
+  background-color: #eee;
+}
+.nav .nav-divider {
+  height: 1px;
+  margin: 9px 0;
+  overflow: hidden;
+  background-color: #e5e5e5;
+}
+.nav > li > a > img {
+  max-width: none;
+}
+.nav-tabs {
+  border-bottom: 1px solid #ddd;
+}
+.nav-tabs > li {
+  float: left;
+  margin-bottom: -1px;
+}
+.nav-tabs > li > a {
+  margin-right: 2px;
+  line-height: 1.42857143;
+  border: 1px solid transparent;
+  border-radius: 4px 4px 0 0;
+}
+.nav-tabs > li > a:hover {
+  border-color: #eee #eee #ddd;
+}
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li.active > a:focus {
+  color: #555;
+  cursor: default;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-bottom-color: transparent;
+}
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+} 
+
+legend{
+	 font-size:14px;
+	 font-weight:bold;
+}
+.button, .button:visited{     
+	 float:right;  
+	 background: #2daebf;   
+	 font-weight:bold;
+	 font-size: 14px;  
+	 display: inline-block;
+	 color: #fff; 
+	 padding: 10px 15px 6px;   
+	 text-decoration: none;
+	 -moz-border-radius: 5px; 
+	 -webkit-border-radius: 5px;
+	 -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+	 -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+	 text-shadow: 0 -2px 2px rgba(0,0,0,0.25);
+	 border-bottom: 2px solid rgba(0,0,0,0.25);
+	 cursor: pointer;
+	 width:130px;
+}
+.button:hover{
+	 background-color: #007d9a; 
+}
+#sortable {
+	 list-style-type: none;
+	 margin: 5px 0px 0px 16px;
+	 padding: 0;
+}
+#sortable li {
+	 margin: 3px 3px 3px 0;
+	 padding: 1px;
+	 float: left;
+	 width: 35px;
+	 height: 35px;
+	 font-size: 20px;
+	 text-align: center;
+	 line-height:35px;
+	 cursor:pointer;
+	 -moz-border-radius:5px;
+	 -webkit-border-radius:5px;
+	 -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.5);
+	 -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.5);
+	 text-shadow: 0 -1px 1px rgba(0,0,0,0.25);
+	 background:#2daebf repeat-x scroll 50% 50%;
+	 color:#fff;
+	 font-weight:normal;
+}
+.captcha_wrap{
+	 border:1px solid #fff;
+	 -moz-border-radius:10px;
+	 -webkit-border-radius:10px;
+	 -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+	 -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+	 height:120px;
+	 overflow:auto;
+	 width:150px;
+	 background-color:#fff;
+}
+.captcha{
+	 -moz-border-radius:10px;
+	 -webkit-border-radius:10px;
+	 font-size:12px;
+	 color:#222222;
+	 text-align: center;
+	 border-bottom:1px solid #CCC;
+	 background-color:#fff;
+}

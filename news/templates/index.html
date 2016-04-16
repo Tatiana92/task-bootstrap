@@ -1,0 +1,74 @@
+<html>
+	<head>
+
+		{% load staticfiles %}
+
+	    <link rel="stylesheet" href="{% static 'materialize/dist/css/materialize.css' %}"/>
+	    
+    <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+	    <script src="{% static 'materialize/dist/js/materialize.js' %}"></script> 
+		<script src="{% static 'js/news.js' %}"></script>
+		<link rel="stylesheet" href="{% static 'css/news.css' %}"/>
+	</head>
+
+	<body>
+
+		<script>
+			MYMEDIA = '{{ MEDIA_URL }}';
+		</script>	
+		 {% csrf_token %}
+
+
+    <div style="display: flex; width: 100%;">
+		    <div class="col-xs-12 col-md-4" style='border: 1px double  rgba(0,0,0,0.5)'>
+			    <div class="sidebar-nav">
+			        <div class="nav nav-pills nav-stacked" id='menu'>
+					  <ul class="nav nav-pills nav-stacked ">
+					    	<li class=" shadow-cp" id='{{cat.id}}'>
+					    		<a href='/getall' class: "img-nav-link">Все новости</a></li>
+					  	{% for cat in category %}
+					    	<li class=" shadow-cp" id='{{cat.id}}' onclick="console.log(this.id);">
+					    		<a href='/cat/{{cat.id}}' class: "img-nav-link" style: "line-height: 3;">{{cat.name}}</a></li>
+					    {% endfor %}
+					  </ul>
+					</div>
+				</div>		 
+		    </div>
+        <div  class="container-fluid" style='flex-grow: 0; width: 100%; margin-left: 5px; display: flex;  '>
+            <div class="row" style="width: 100%;">
+			    <div class="col-sm-2" style="width: 100%; border: 1px double  rgba(0,0,0,0.5)">
+			    	<div align="center" style="width: 100%;">
+					  <br>Введите заголовок новости для поиска:<br>
+					  <input type="text" class="form-control" id="findByName" style="width: 50%; flow: left;">
+					  <button type="button" class="btn btn-primary" onclick="findNews();">Поиск</button>
+					  <br>
+					</div>
+			    </div>
+			    <div id='cpane'>
+	                <div class="row" id='info'>
+	            	{% for report in news %}
+	                
+	                    <div class="col shadow-cp" style="width: 300px; flow:left; height: 420px; margin:5px;">
+
+						    <div class="thumbnail">
+						      <span class="imgPicture">
+
+						      	<img src="{{MEDIA_URL}}{{report.photo}}" height="auto" width="290" alt="..." >
+						      </span>
+						      <div class="caption">
+						        <h3>{{report.name}}</h3>
+						        <p>{{report.text|truncatechars:300}}
+						        	<a href='/vote/{{report.id}}'>...Читать далее...</a> 
+						        </p>
+
+						      </div>
+						    </div>
+	                    </div>
+	            	{% endfor %}
+	                </div>
+        	</div> 
+        	</div>
+    </div>
+	</body>
+</html>
+
